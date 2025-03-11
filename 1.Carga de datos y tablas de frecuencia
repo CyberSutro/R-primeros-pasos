@@ -1,1 +1,19 @@
+install.packages("readxl")
 
+library(readxl)
+
+Curso_X_Barra <- read_excel("C:\\Users\\salin\\Downloads\\Curso X Barra.xlsx")
+View(Curso_X_Barra)
+
+str(Curso_X_Barra)
+
+tabla de frecuencia variables cualitativas
+table(Curso_X_Barra$Edad)
+table(Curso_X_Barra[,2])
+
+install.packages("agricolae")
+library(agricolae)
+
+t=hist(Curso_X_Barra[,2],plot=FALSE)
+tf=table.freq(t)
+tf
