@@ -1,13 +1,16 @@
+# instalar librerias
 install.packages("readxl")
-
+# cargar librerias
 library(readxl)
+library(ggplot2)
 
+#cargar datos del pc
 Curso_X_Barra <- read_excel("C:\\Users\\salin\\Downloads\\Curso X Barra.xlsx")
 View(Curso_X_Barra)
 
 str(Curso_X_Barra)
 
-tabla de frecuencia variables cualitativas
+#tabla de frecuencia variables cualitativas
 table(Curso_X_Barra$Edad)
 table(Curso_X_Barra[,2])
 
@@ -17,3 +20,15 @@ library(agricolae)
 t=hist(Curso_X_Barra[,2],plot=FALSE)
 tf=table.freq(t)
 tf
+
+#tabla de frecuencia variables cuantitativas
+table(Curso_X_Barra$Sexo)
+table(Curso_X_Barra[,3])
+
+table(Curso_X_Barra$Sexo)/sum(table(Curso_X_Barra$Sexo))*100
+
+ggplot(df_proporciones, aes(x = Sexo, y = Porcentaje, fill = Sexo)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Proporción de Sexo", y = "Porcentaje") +
+  theme_minimal() +
+  scale_fill_brewer(palette = "Set1") # Opcional: para cambiar la paleta de colores
